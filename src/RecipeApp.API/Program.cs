@@ -15,7 +15,7 @@ try
     app.Configure();
     app.Run();
 }
-catch (Exception ex)
+catch (Exception ex) when (ex is not HostAbortedException) // Otherwise it logs an EF.Design error
 {
     Log.Fatal(ex, "Unhandled exception");
 }
