@@ -1,4 +1,4 @@
-using RecipeApp.API.Users;
+using RecipeApp.API.Recipes;
 
 namespace RecipeApp.API;
 
@@ -13,11 +13,11 @@ public static class Endpoints
 
     private static void MapUserEndpoints(this IEndpointRouteBuilder app)
     {
-        var endpoints = app.MapGroup("/users")
-            .WithTags("Users");
+        var endpoints = app.MapGroup("/recipes")
+            .WithTags("Recipes");
 
         endpoints.MapPublicGroup()
-            .MapEndpoint<GetUsers>();
+            .MapEndpoint<GetRecipes>();
     }
 
     private static RouteGroupBuilder MapPublicGroup(this IEndpointRouteBuilder app, string? prefix = null)

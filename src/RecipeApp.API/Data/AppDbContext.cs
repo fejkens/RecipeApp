@@ -5,17 +5,17 @@ namespace RecipeApp.API.Data;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public DbSet<User> Users { get; set; }
+    public DbSet<Recipe> Recipes { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        ConfigureUsersTable(modelBuilder);
+        ConfigureRecipesTable(modelBuilder);
         base.OnModelCreating(modelBuilder);
     }
 
-    private static void ConfigureUsersTable(ModelBuilder modelBuilder)
+    private static void ConfigureRecipesTable(ModelBuilder modelBuilder)
     {
-        var builder = modelBuilder.Entity<User>();
+        var builder = modelBuilder.Entity<Recipe>();
         
         builder.HasIndex(x => x.Name)
             .IsUnique();
